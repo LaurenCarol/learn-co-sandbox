@@ -1,0 +1,78 @@
+local variable within a function:
+
+function speaker() {
+  var sentence = 'Bird is the word.';
+ 
+  console.log(sentence);
+}
+
+
+
+
+global variable:
+
+function speaker() {
+  sentence = 'Bird is the word.';
+}
+ 
+speaker();
+console.log(sentence);
+
+
+
+
+BOTH LOCAL AND GLOBAL
+
+var cuteAnimal = 'quokka';
+ 
+function makeVariable() {
+  var cuteAnimal = 'sugar glider';
+  return cuteAnimal;
+}
+ 
+makeVariable();
+// 'sugar glider'
+ 
+cuteAnimal;
+// 'quokka'
+ 
+ 
+ 
+ 
+ CHANGING VARIABLE ASSIGNMENT 
+ 
+volume = 10; //declares a global variable called volume and sets it to 10
+ 
+function returnEleven() {
+  var volume = 11;  //declares a local variable called volume and sets it to 11
+  return volume;
+}
+ 
+returnEleven(); // returns 11
+volume; // the global variable is still 10
+ 
+function goToEleven(){
+  volume = 11;  //changes the global variable to 11
+  return volume;
+}
+ 
+goToEleven(); // returns 11
+volume; // the global variable volume has been changed to 11
+
+
+
+function sayHello() {
+  var greeting = "hola";
+  greeting = "hello";
+  return greeting;
+}
+ 
+sayHello()
+// Returns "hello",
+// This demonstrates that the variable greeting is now pointing to the string "hello" instead of "hola"
+ 
+greeting
+// ReferenceError: greeting is not defined
+// This demonstrates that the variable greeting is still local instead of global
+
+*local variable assignment can overwrite global variable assignment,but global cannot overwrite local
